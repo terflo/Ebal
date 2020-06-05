@@ -1,5 +1,7 @@
 #include "FileManager.h"
 
+#define Object Object
+
 class FileManager {
 
 	FileManager::FileManager() {
@@ -17,7 +19,7 @@ class FileManager {
 	}
 
 
-	FileManager::list<BookShop>readFromFile() {
+	FileManager::list<Object>readFromFile() {
 		list<BookShop> books;
 		BookShop book;
 		while (!file.eof()) {
@@ -27,7 +29,7 @@ class FileManager {
 	}
 
 
-	void FileManager::writeFromFile(list<BookShop> books) {
+	void FileManager::writeFromFile(list<Object> books) {
 		for (BookShop book : books) {
 			ifile << book;
 		}

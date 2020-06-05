@@ -3,6 +3,8 @@
 #include <iostream>
 #include "../sourceClasses/BookShop.h"
 
+#define Object Object
+
 using namespace std;
 
 class FileManager {
@@ -13,6 +15,6 @@ private:
 public:
 	FileManager();
 	~FileManager();
-	list<BookShop> readFromFile();
-	void writeFromFile(list<BookShop> books);
+	list<Object> readFromFile();
+	void writeFromFile(list<Object> books);
 };
