@@ -5,9 +5,15 @@
 #ifndef TEST_BOOKSHOP_H
 #define TEST_BOOKSHOP_H
 
+#include <string>
 
 class BookShop {
+private:
+	string name;
 
+public:
+	BookShop(string name);
+	~BookShop();
 };
 
 
