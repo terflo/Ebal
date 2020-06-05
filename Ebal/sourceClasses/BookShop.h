@@ -2,9 +2,6 @@
 // Created by Nik on 05.06.2020.
 //
 
-#ifndef TEST_BOOKSHOP_H
-#define TEST_BOOKSHOP_H
-
 #include <string>
 #include "./Book.h"
 using namespace std;
@@ -14,6 +11,7 @@ private:
 	string name;
 public:
 	BookShop(string name);
+	BookShop();
 	~BookShop();
 	string getName();
 	string toString();
@@ -22,6 +20,3 @@ public:
 
 
 };
-
-
-#endif //TEST_BOOKSHOP_H
