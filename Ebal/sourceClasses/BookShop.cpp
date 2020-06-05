@@ -8,6 +8,6 @@ BookShop::BookShop(string name) {
 	this.name = name;
 }
 
-BookShop::BookShop() {}
-
-BookShop::~BookShop() {}
+bool BookShop::operator==(BookShop bookShop) {
+    return this->name == bookShop.getName();
+}
