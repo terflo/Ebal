@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include "Node.h"
 
 template <typename T>
@@ -17,7 +16,7 @@ public:
 	void push_front(T data);
 	void pop_back();
 	void pop_front();
-	void removeAt(T get);
+	void remove(int index);
 	void removeAll();
 	void addAt(int index);
 	bool find(T get);
@@ -73,7 +72,7 @@ void List<T>::push_front(T data) {
 
 template<typename T>
 void List<T>::pop_back() {
-	if (Size) {
+	if (Tale != nullptr) {
 		Node<T>* ptr = Tale;
 		Tale = Tale->pPrev;
 		delete ptr;
@@ -83,16 +82,14 @@ void List<T>::pop_back() {
 
 template<typename T>
 void List<T>::pop_front() {
-	if (Size) {
 		Node<T>* ptr = Head;
 		Head = Head->pNext;
 		delete ptr;
 		Size--;
-	}
 }
 
 template<typename T>
-void List<T>::removeAt(T get) {
+void List<T>::remove(int index) {
 
 }
 
@@ -103,7 +100,7 @@ void List<T>::addAt(int index) {
 
 template<typename T>
 bool List<T>::find(T get) {
-	for (Node<T>* ptr = Head; ptr != Tale; ptr = ptr->pNext) {
+	for (Node<T>* ptr = Head; ptr != nullptr; ptr = ptr->pNext) {
 		if (ptr->data == get) return true;
 	}
 	return false;

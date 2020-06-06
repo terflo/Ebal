@@ -1,12 +1,14 @@
 #pragma once
+#pragma warning(disable:4996)
 
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "../containers/List.h"
+#include <cstring>
+#include <vector>
+#include <conio.h>
 #include "../sourceClasses/BookShop.h"
 #include "../sourceClasses/Book.h"
-#include "../Test/TestObject.h"
 
 using namespace std;
 
@@ -20,9 +22,9 @@ public:
 
 	~FileManager();
 
-	List<BookShop> readFromFile();
+	vector<BookShop> readFromFile();
 
-	void writeFromFile(List<BookShop> books);
+	void writeToFile(vector<BookShop> books);
 };
 
 inline FileManager::FileManager()
@@ -35,34 +37,77 @@ inline FileManager::~FileManager()
 
 }
 
-inline List<BookShop> FileManager::readFromFile()
+inline vector<BookShop> FileManager::readFromFile()
 {
 	ifile.open("file.csv", ios::in);
 	if (!ifile) {
-		cout << "Файл не доступен!" << endl;	//todo: переделать
-		return List<BookShop>();
+		cout << "Файл не доступен!" << endl;
+		return vector<BookShop>();
 	}
-	size_t pos = 0;
-	const string delimetr1 = ",";
-	const string delimetr2 = "@";
-	string buffer1;
-	string buffer2;
-	while (getline(ifile, buffer1)) {
-		while ((pos = buffer1.find(delimetr2)) != std::string::npos) {
-			buffer2 = buffer1.substr(0, pos);
-			buffer1.erase(0, pos + delimetr2.length());
+	string buffer;
+	string authorBook;
+	string nameBook;
+	string nameBookShop;
+	int price = 0;
+	vector<BookShop> vec;
+	vector<string> vecbuffer;
+	vector<Book> vecbooks;
+	while (ifile.good()) {
+		getline(ifile, buffer, '@');
+		nameBookShop = buffer;
+		buffer = "";
+		getline(ifile, buffer);
+		size_t prev = 0;
+		size_t next;
+		while ((next = buffer.find('#', prev)) != string::npos) {
+			string tmp = buffer.substr(prev, next - prev);
+			vecbuffer.push_back(tmp);
+			prev = next + 1;
 		}
+		for (string str : vecbuffer) {
+			size_t iterations = 0;
+			prev = 0;
+			while ((next = str.find(',', prev)) != string::npos) {
+				string tmp = str.substr(prev, next - prev);
+				switch (iterations) {
+				case 0:
+					authorBook = tmp;
+					break;
+				case 1:
+					nameBook = tmp;
+					break;
+				case 2:
+					price = atoi(tmp.c_str());
+					break;
+				}
+				prev = next + 1;
+				iterations++;
+			}
+			vecbooks.push_back(Book(nameBook, authorBook, price));
+		}
+		vec.push_back(BookShop(nameBookShop,vecbooks));
+		vecbuffer.clear();
+		vecbooks.clear();
 	}
-	ofile.close();
-	return List<BookShop>();
+	return vec;
 }
 
-inline void FileManager::writeFromFile(List<BookShop> books) {
+inline void FileManager::writeToFile(vector<BookShop> books) {
 	ofile.open("file.csv", ios::out);
 	if (!ofile) {
-		cout << "Файл не доступен!" << endl;	//todo: переделать
+		cout << "Файл не доступен!" << endl;
+		return;
 	}
-	
+	for (size_t i = 0; i < books.size(); i++) {
+		ofile << books.at(i).getName() << '@';
+		vector<Book> vec = books.at(i).getBookVector();
+		for (size_t j = 0; j < vec.size(); j++) {
+			ofile << vec.at(j).getAuthor() << ',' << vec.at(j).getName() << ',' << to_string(vec.at(j).getPrice()) << ',' <<'#';
+		}
+		ofile << '\n';
+	}
 	ofile.close();
 }
 
+
+vector <pair<string, vector<string>>> vec;

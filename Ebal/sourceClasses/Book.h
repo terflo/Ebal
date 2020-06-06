@@ -9,9 +9,9 @@ using namespace std;
 
 class Book {
 private:
-    string name;
-    string author;
-    int price;
+	char name[255] = {0};
+	char author[255] = {0};
+    int price = 0;
 
 public:
     Book();
@@ -28,15 +28,18 @@ public:
 
 inline Book::Book()
 {
-	this->name = "";
-	this->author = "";
-	this->price = 0;
 }
 
 inline Book::Book(string name, string author, int price)
 {
-	this->name = name;
-	this->author = author;
+	for (size_t i = 0; i < name.size(); i++) {
+		this->name[i] = name.at(i);
+	}
+	this->name[name.size() + 1] = '\0';
+	for (size_t i = 0; i < author.size(); i++) {
+		this->author[i] = author.at(i);
+	}
+	this->author[author.size() + 1] = '\0';
 	this->price = price;
 }
 
@@ -46,12 +49,18 @@ inline Book::~Book()
 
 inline void Book::setName(string name)
 {
-	this->name = name;
+	for (size_t i = 0; i < name.size(); i++) {
+		this->name[i] = name.at(i);
+	}
+	this->name[name.size() + 1] = '\0';
 }
 
 inline void Book::setAuthor(string author)
 {
-	this->author = author;
+	for (size_t i = 0; i < author.size(); i++) {
+		this->author[i] = author.at(i);
+	}
+	this->author[author.size() + 1] = '\0';
 }
 
 inline void Book::setPrice(int price)
@@ -61,12 +70,12 @@ inline void Book::setPrice(int price)
 
 inline string Book::getName()
 {
-	return this->name;
+	return string(this->name);
 }
 
 inline string Book::getAuthor()
 {
-	return this->author;
+	return string(this->author);
 }
 
 inline int Book::getPrice()
@@ -76,5 +85,5 @@ inline int Book::getPrice()
 
 inline string Book::toString()
 {
-	return string(this->getName() + ':' + this->getAuthor() + ':' + to_string(this->getPrice()) + '\n');
+	return string(this->getName() + ':' + this->getAuthor() + ':' + to_string(this->getPrice()));
 }

@@ -23,9 +23,6 @@
     <ClInclude Include="Test\ListObjects.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Test\TestObject.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="sourceClasses\Book.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
