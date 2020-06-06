@@ -3,7 +3,7 @@
 #include "../sourceClasses/BookShop.h"
 #include "../sourceClasses/Book.h"
 #include "../containers/List.h"
-#include "../Test/TestObject.h"
+
 
 #define Object TestObject
 
@@ -17,8 +17,8 @@ private:
 public:
 	FileManager();
 	~FileManager();
-	List<Object> readFromFile();
-	void writeFromFile(List<Object> books);
+	List<BookShop> readFromFile();
+	void writeFromFile(List<BookShop> books);
 };
 
 inline FileManager::FileManager()
@@ -29,12 +29,12 @@ inline FileManager::~FileManager()
 {
 }
 
-List<Object> FileManager::readFromFile()
+inline List<BookShop> FileManager::readFromFile()
 {
-	return List<Object>();
+	return List<BookShop>();
 }
 
-void FileManager::writeFromFile(List<Object> books)
+inline void FileManager::writeFromFile(List<BookShop> books)
 {
 
 }

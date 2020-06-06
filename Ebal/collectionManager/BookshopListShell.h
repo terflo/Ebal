@@ -2,15 +2,15 @@
 //
 // Created by Nik on 05.06.2020.
 //
-#include <list>
 #include <iostream>
 #include "../sourceClasses/BookShop.h"
+#include "../containers/List.h"
 
 using namespace std;
 
 class BookshopListShell {
 private:
-    list<BookShop> bookList;
+    List<BookShop> bookList;
 public:
     BookshopListShell();
     ~BookshopListShell();
@@ -20,6 +20,7 @@ public:
     void showBookshopList();
     BookShop getBookshop(string name);
     void info();
+    List<BookShop> getList();
 
 
 };
