@@ -1,5 +1,4 @@
 #pragma once
-#pragma warning(disable:4996)
 
 #include <fstream>
 #include <iostream>
@@ -93,7 +92,7 @@ inline vector<BookShop> FileManager::readFromFile()
 }
 
 inline void FileManager::writeToFile(vector<BookShop> books) {
-	ofile.open("file.csv", ios::out);
+	ofile.open("file.csv", ios::out | ios::trunc);
 	if (!ofile) {
 		cout << "Файл не доступен!" << endl;
 		return;
@@ -108,6 +107,3 @@ inline void FileManager::writeToFile(vector<BookShop> books) {
 	}
 	ofile.close();
 }
-
-
-vector <pair<string, vector<string>>> vec;
