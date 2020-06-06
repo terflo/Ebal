@@ -1,9 +1,11 @@
 //
 // Created by Nik on 06.06.2020.
 //
-#include <string>
 #ifndef UNTITLED_BOOK_H
 #define UNTITLED_BOOK_H
+
+#include <string>
+
 using namespace std;
 
 class Book {
@@ -13,7 +15,8 @@ private:
     int price;
 
 public:
-    Book(string name);
+    Book();
+    Book(string name, string author, int price);
     ~Book();
     void setName(string name);
     void setAuthor(string author);

@@ -18,7 +18,7 @@ private:
 
 public:
     Book createBook();
-    Book createBookWithArgs(list<string> optionsList)
+    Book createBookWithArgs(list<string> optionsList);
 };
 
 

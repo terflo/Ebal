@@ -1,12 +1,19 @@
 #include "List.h"
 
-List::List() {
+template<typename T>
+List<T>::List() {
 	Size = 0;
 	Head = nullptr;
 	Tale = nullptr;
 }
 
-List::~List() {
+template<typename T>
+List<T>::~List() {
+	removeAll();
+}
+
+template<typename T>
+void List<T>::removeAll() {
 	while (Size) {
 		pop_front();
 	}
@@ -14,15 +21,25 @@ List::~List() {
 
 template<typename T>
 void List<T>::push_back(T data) {
-	Tale->pNext = data;
-	Tale = Tale->pNext;
+	if (Tale == nullptr) {
+		Tale = new Node<T>(data);
+	}
+	else {
+		Tale->pNext = new Node<T>(data);
+		Tale = Tale->pNext;
+	}
 	Size++;
 }
 
 template<typename T>
 void List<T>::push_front(T data) {
-	Head->pPrev = data;
-	Head = Head->pPrev;
+	if (Head == nullptr) {
+		Head = new Node<T>(data);
+	}
+	else {
+		Head->pPrev = data;
+		Head = Head->pPrev;
+	}
 	Size++;
 }
 
@@ -44,7 +61,10 @@ void List<T>::pop_front() {
 
 template<typename T>
 void List<T>::removeAt(int index) {
+	int index2 = 0;
+	for (Node<T> *ptr = Head; ptr != Tale; ptr = ptr->pNext) {
 
+	}
 }
 
 template<typename T>
@@ -59,7 +79,10 @@ void List<T>::addAt(int index) {
 
 template<typename T>
 bool List<T>::find(T get) {
-
+	for (Node<T> *ptr = Head; ptr != Tale; ptr = ptr->pNext) {
+		if (ptr->data == get) return true;
+	}
+	return false;
 }
 
 template<typename T>
@@ -68,7 +91,11 @@ int List<T>::getSize() {
 }
 
 template<typename T>
-T List<T>::get(int index)
-{
-	return T();
+T List<T>::get(int index) {
+	int index2 = 0;
+	for (Node<T> *ptr = Head; ptr != Tale; ptr = ptr->pNext) {
+		if (index2 == index) return ptr->data;
+		index2++;
+	}
+	return 0;
 }

@@ -1,7 +1,8 @@
-#include <list>
 #include <fstream>
 #include <iostream>
 #include "../sourceClasses/BookShop.h"
+#include "../containers/List.h"
+#include "../Test/Object.h"
 
 #define Object Object
 
@@ -15,6 +16,6 @@ private:
 public:
 	FileManager();
 	~FileManager();
-	list<Object> readFromFile();
-	void writeFromFile(list<Object> books);
+	List<Object> readFromFile();
+	void writeFromFile(List<Object> books);
 };

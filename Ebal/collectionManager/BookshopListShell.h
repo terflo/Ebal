@@ -1,8 +1,10 @@
+#pragma once
 //
 // Created by Nik on 05.06.2020.
 //
 
 #include <list>
+#include <iostream>
 #include "../sourceClasses/BookShop.h"
 
 using namespace std;

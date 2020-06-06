@@ -1,12 +1,22 @@
 //
 // Created by Nik on 05.06.2020.
 //
-#include "iostream"
 #include "BookshopListShell.h"
-using namespace std;
+
+BookshopListShell::BookshopListShell()
+{
+}
+
+BookshopListShell::~BookshopListShell()
+{
+}
 
 void BookshopListShell::addNewBookshop(BookShop bookShop) {
     bookList.push_front(bookShop);
+}
+
+void BookshopListShell::removeBookshopByName(string name)
+{
 }
 
 void BookshopListShell::info() {
@@ -16,6 +26,7 @@ void BookshopListShell::info() {
     }
     cout << bufferInfo << endl;
 }
+
 void BookshopListShell::updateBookshop(string bookshopName) {
     for (BookShop bookShop : bookList){
         if (bookShop.getName() == bookshopName){
@@ -23,6 +34,11 @@ void BookshopListShell::updateBookshop(string bookshopName) {
         }
     }
 }
+
+void BookshopListShell::showBookshopList()
+{
+}
+
 BookShop BookshopListShell::getBookshop(string name) {
     for(BookShop bookShop : bookList){
         if(bookShop.getName() == name){
