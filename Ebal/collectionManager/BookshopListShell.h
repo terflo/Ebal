@@ -3,26 +3,45 @@
 // Created by Nik on 05.06.2020.
 //
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "../sourceClasses/BookShop.h"
-#include "../containers/List.h"
 
 using namespace std;
 
+bool comp(BookShop a, BookShop b) {
+    return a.bookCount() > b.bookCount();
+}
+
 class BookshopListShell {
 private:
-    List<BookShop> bookList;
+    vector<BookShop> bookList;
 public:
     BookshopListShell();
     ~BookshopListShell();
+    void sortVec();
     void addNewBookshop(BookShop bookShop);
     void removeBookshopByName(string name);
     void updateBookshop(string bookshopName);
     void showBookshopList();
     BookShop getBookshop(string name);
     void info();
+};
+
+BookshopListShell::BookshopListShell() {
+
+}
+
+BookshopListShell::~BookshopListShell() {
+
+}
+
+inline void BookshopListShell::sortVec() {
+    sort(bookList.begin(), bookList.end(), comp);
+}
 
 void BookshopListShell::addNewBookshop(BookShop bookShop) {
-    bookList.push_front(bookShop);
+    bookList.push_back(bookShop);
 }
 
 void BookshopListShell::removeBookshopByName(string name)
@@ -56,7 +75,3 @@ BookShop BookshopListShell::getBookshop(string name) {
         }
     }
 }
-
-
-
-

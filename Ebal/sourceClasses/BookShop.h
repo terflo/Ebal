@@ -22,6 +22,7 @@ public:
 	string toString();
 	void setName(string name);
 	void addBook(Book book);
+	int bookCount();
 	vector<Book> getBookVector();
 	bool operator ==(BookShop bookShop);
 	bool operator != (BookShop bookShop);
@@ -89,6 +90,11 @@ inline void BookShop::setName(string name)
 inline void BookShop::addBook(Book book)
 {
 	bookList.push_back(book);
+}
+
+inline int BookShop::bookCount()
+{
+	return bookList.size();
 }
 
 inline vector<Book> BookShop::getBookVector()

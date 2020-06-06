@@ -3,9 +3,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <cstring>
 #include <vector>
 #include <conio.h>
+#include "../collectionManager/BookshopListShell.h"
 #include "../sourceClasses/BookShop.h"
 #include "../sourceClasses/Book.h"
 
@@ -15,20 +15,27 @@ class FileManager {
 private:
 	ifstream ifile;
 	ofstream ofile;
+	string filePath;
+	BookshopListShell *bookShopListShell;
 
 public:
 	FileManager();
-
+	FileManager(string filePath, BookshopListShell* bookShopListShell);
 	~FileManager();
-
 	vector<BookShop> readFromFile();
-
 	void writeToFile(vector<BookShop> books);
+
 };
 
 inline FileManager::FileManager()
 {
+	bookShopListShell = nullptr;
+}
 
+inline FileManager::FileManager(string filePath, BookshopListShell* bookShopListShell)
+{
+	this->filePath = filePath;
+	this->bookShopListShell = bookShopListShell;
 }
 
 inline FileManager::~FileManager()
@@ -38,7 +45,7 @@ inline FileManager::~FileManager()
 
 inline vector<BookShop> FileManager::readFromFile()
 {
-	ifile.open("file.csv", ios::in);
+	ifile.open(filePath + "file.csv", ios::in);
 	if (!ifile) {
 		cout << "Файл не доступен!" << endl;
 		return vector<BookShop>();
@@ -92,7 +99,7 @@ inline vector<BookShop> FileManager::readFromFile()
 }
 
 inline void FileManager::writeToFile(vector<BookShop> books) {
-	ofile.open("file.csv", ios::out | ios::trunc);
+	ofile.open(filePath + "file.csv", ios::out | ios::trunc);
 	if (!ofile) {
 		cout << "Файл не доступен!" << endl;
 		return;
