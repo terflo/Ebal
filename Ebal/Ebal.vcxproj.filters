@@ -15,19 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ebal.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="containers\List.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="containers\Node.cpp">
+    <ClCompile Include="collectionManager\BookshopListShell.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="factories\BookFactory.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="fileWorker\FileManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="sourceClasses\Book.cpp">
@@ -39,24 +30,15 @@
     <ClCompile Include="Test\ListObjects.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Test\TestObject.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="collectionManager\BookshopListShell.cpp">
+    <ClCompile Include="Ebal.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="containers\List.h">
+    <ClInclude Include="Test\ListObjects.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="containers\Node.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="factories\BookFactory.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="fileWorker\FileManager.h">
+    <ClInclude Include="Test\TestObject.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="sourceClasses\Book.h">
@@ -65,10 +47,16 @@
     <ClInclude Include="sourceClasses\BookShop.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Test\ListObjects.h">
+    <ClInclude Include="fileWorker\FileManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Test\TestObject.h">
+    <ClInclude Include="factories\BookFactory.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="containers\List.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="containers\Node.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="collectionManager\BookshopListShell.h">

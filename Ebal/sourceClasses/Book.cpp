@@ -24,24 +24,27 @@ Book::~Book()
 
 void Book::setName(string name)
 {
+	this->name = name;
 }
 
 void Book::setAuthor(string author)
 {
+	this->author = author;
 }
 
 void Book::setPrice(int price)
 {
+	this->price = price;
 }
 
 string Book::getName()
 {
-	return string();
+	return this->name;
 }
 
 string Book::getAuthor()
 {
-	return string();
+	return this->author;
 }
 
 int Book::getPrice()
@@ -51,5 +54,5 @@ int Book::getPrice()
 
 string Book::toString()
 {
-	return string();
+	return string(); //сам пиши
 }

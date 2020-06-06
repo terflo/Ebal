@@ -3,13 +3,14 @@
 //
 
 #include <string>
+#include <list>
 #include "./Book.h"
 #include "../containers/List.h"
 
 using namespace std;
 class BookShop {
 private:
-	List<Book> bookList;
+	list<Book> bookList;
 	string name;
 public:
 	BookShop(string name);
