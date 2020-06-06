@@ -1,32 +1,40 @@
 #pragma once
 
 #include <string>
+#include "../containers/List.h"
+#include "../sourceClasses/Book.h"
 
 using namespace std;
 
 class TestObject {
 private:
 	string name;
+	List<Book> list;
 
 public:
 	TestObject();
 	TestObject(string name);
 	~TestObject();
 	string getName();
+	void addBook(Book book);
 };
 
-TestObject::TestObject(string name) {
+inline TestObject::TestObject(string name) {
 	this->name = name;
 }
 
-TestObject::TestObject() {
+inline TestObject::TestObject() {
 	this->name = "";
 }
 
-TestObject::~TestObject() {
+inline TestObject::~TestObject() {
 
 }
 
-string TestObject::getName() {
+inline string TestObject::getName() {
 	return this->name;
+}
+
+inline void TestObject::addBook(Book book) {
+	list.push_back(book);
 }
