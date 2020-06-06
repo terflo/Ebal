@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include "../sourceClasses/BookShop.h"
+#include "../sourceClasses/Book.h"
 #include "../containers/List.h"
 #include "../Test/TestObject.h"
 

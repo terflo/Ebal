@@ -1,13 +1,14 @@
 ﻿#include <iostream>
 #include "containers/List.h"
-#include "Test/TestObject.h"
+#include "fileWorker/FileManager.h"
+#include "sourceClasses/BookShop.h"
 
 using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "ru");
-    List<TestObject> list;
+    FileManager fm;
     cout << endl;
     return 0;
 }   
